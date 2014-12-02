@@ -5,12 +5,67 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.openfb'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform, $rootScope, $state, $window, OpenFB) {
+.run(function($ionicPlatform, $state) {
   $ionicPlatform.ready(function() {
 
-      OpenFB.init('294586347398638');
+
+
+      var fbLoginSuccess = function (userData) {
+          alert("UserInfo: " + JSON.stringify(userData));
+          facebookConnectPlugin.getAccessToken(function(token) {
+              alert("Token: " + token);
+              $location.path('/app/feed');
+          }, function(err) {
+              alert("Could not get access token: " + err);
+          });
+
+      };
+
+      facebookConnectPlugin.login(['email,read_stream,publish_stream'],
+          fbLoginSuccess,
+          function (error) {
+              alert("" + error)
+          }
+      );
+
+      try {
+          facebookConnectPlugin.getLoginStatus(function (response) {
+              if (response.status === 'connected') {
+                  // the user is logged in and has authenticated your
+                  // app, and response.authResponse supplies
+                  // the user's ID, a valid access token, a signed
+                  // request, and the time the access token
+                  // and signed request each expire
+                  var uid = response.authResponse.userID;
+                  alert(uid);
+                  //var accessToken = response.authResponse.accessToken;
+
+                  // make sure id exists in local storage
+                  // This ID is used in connection with DB
+                  // If no ID in LS, then simply add it
+
+
+              } else if (response.status === 'not_authorized') {
+                  // the user is logged in to Facebook,
+                  // but has not authenticated your app
+                  // request permissions (for now we send to login)
+                  $state.go('login');
+              } else {
+                  // the user isn't logged in to Facebook.
+                  $state.go('login');
+              }
+          })
+      }
+      catch(e){
+          alert("There was error" + e);
+      }
+
+
+
+
+
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,17 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
 
 
-      $rootScope.$on('$stateChangeStart', function(event, toState) {
-          if (toState.name !== "login" && toState.name !== "logout" && !$window.sessionStorage['fbtoken']) {
-              $state.go('login');
-              event.preventDefault();
-          }
-
-      });
-
-      $rootScope.$on('OAuthException', function() {
-          $state.go('app.login');
-      });
 
   });
 })
@@ -82,7 +126,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
               }
           }
       })
-
 
       .state('app.ink', {
           url: '/ink',
@@ -133,7 +176,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     });
 
-  // if none of the above states are matched, use this as the fallback
+  // if none of the above states are matched, use this as the
+  // take user to feed
   $urlRouterProvider.otherwise('/app/feed');
 
 });

@@ -1,42 +1,23 @@
 angular.module('starter.controllers', [])
 
-    .controller('AppCtrl', function ($scope, $state, OpenFB) {
+    .controller('AppCtrl',function ($scope, $state) {
 
-      $scope.logout = function () {
-        OpenFB.logout();
-        $state.go('login');
-      };
 
-      $scope.revokePermissions = function () {
-        OpenFB.revokePermissions().then(
-            function () {
-              $state.go('login');
-            },
-            function () {
-              alert('Revoke permissions failed');
-            });
-      };
+
 
     })
 
-    .controller('AuthCtrl', function ($scope, $state, $location, OpenFB) {
+    .controller('AuthCtrl', function ($scope) {
 
-      $scope.facebookLogin = function () {
 
-        OpenFB.login('email,read_stream,publish_stream').then(
-            function () {
-              $location.path('/app/feed');
-            },
-            function () {
-              alert('OpenFB login failed');
-            });
-
-      };
 
     })
 
-.controller('FeedCtrl', function($scope) {
-})
+.controller('FeedCtrl', function() {
+
+
+
+    })
 
 .controller('ExploreCtrl', function($scope) {
 })
