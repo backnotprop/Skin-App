@@ -1,0 +1,137 @@
+/*
+
+    This is our custom CSS
+    ionic css stored in lib directory
+
+                                        */
+#main {
+    min-width: 100%;
+    min-height: 80%;
+}
+
+/************* Custom Icons *************/
+
+.tabs .tab-item .icon.feed{
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 90%;
+    background-image: url('../img/tabs/home.png');
+    background-size: contain;
+
+}
+
+.tabs .tab-item .icon.tags{
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 90%;
+    background-image: url('../img/tabs/hashtag.png');
+    background-size: contain;
+
+}
+
+.tabs .tab-item .icon.ink{
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 90%;
+    background-image: url('../img/tabs/gun.png');
+    background-size: contain;
+
+}
+
+.tabs .tab-item .icon.locate{
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 90%;
+    background-image: url('../img/tabs/locater.png');
+    background-size: contain;
+
+}
+
+.tabs .tab-item .icon.self{
+    background-repeat: no-repeat;
+    background-position: 50%;
+    height: 90%;
+    background-image: url('../img/tabs/personal.png');
+    background-size: contain;
+
+}
+
+
+/************* Custom styles *************/
+
+/*-------- LOGIN --------*/
+#fBook {
+    margin-top: 50%;
+}
+
+
+/*-------- PROFILE ---------*/
+
+#pics{
+    min-width:100%;
+    max-height:20vh;
+}
+
+#coverPic {
+    background-image: url("../img/profile/usa.jpg");
+    background-color: black;
+    position:relative;
+    background-repeat:no-repeat;
+    min-width:100%;
+    min-height:20vh;
+    background-size:100% 100%;
+    box-shadow: 10px 10px 5px #888888;
+
+}
+
+
+#profilePic {
+    position: absolute;
+    border:3px grey solid;
+    left: 35%;
+    background-image:url("../img/profile/profilepic.jpg");
+    background-repeat:no-repeat;
+    width:30%;
+    height:16vh;
+    -webkit-transform: translate(0%,-50%);
+    -moz-transform: translate(0%,-50%);
+    -ms-transform: translate(0%,-50%);
+    background-size:100% 100%;
+}
+
+.profButton{
+    min-width:25%;
+    min-height:25%;
+    border-radius: 13px;
+    margin: 3%;
+}
+
+#navButtons{
+    -webkit-transform: translate(0%,100%);
+    -moz-transform: translate(0%,100%);
+    -ms-transform: translate(0%,100%);
+    position: relative;
+    margin-top:5%;
+}
+
+
+
+#profFeed{
+    position: relative;
+    margin-top: 25%;
+    min-width:100%;
+}
+
+.list, .card{
+    margin: 0;
+}
+
+
+
+.item-body{
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+}
