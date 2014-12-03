@@ -9,7 +9,7 @@
     min-height: 80%;
 }
 
-/************* Custom Icons *************/
+/************* Customized Ionic-Tab Icons *************/
 
 .tabs .tab-item .icon.feed{
     background-repeat: no-repeat;
@@ -60,8 +60,21 @@
 /************* Custom styles *************/
 
 /*-------- LOGIN --------*/
+
+#logParent{
+    position: relative;
+    min-width: 100%;
+    min-height:100vh;
+}
 #fBook {
-    margin-top: 50%;
+    position: absolute;
+    bottom: 15%;
+
+}
+#loginPage{
+    background-image: url('../img/bgrounds/default.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
 
