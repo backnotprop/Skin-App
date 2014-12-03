@@ -1,5 +1,49 @@
 <ion-view title="Ink Feed">
   <ion-content class="padding">
 
+
+
+    <div id ="inkFeed" class="list card" ng-repeat="t in items.posts">
+
+      <div class="item item-avatar">
+        <img src="{{ t.urlRef}}">
+        <a href="/skin?uname={{t.username}}"><h2> {{ t.username }}</h2></a>
+        <p>November 05, 1955</p> {{ t.date }}
+      </div>
+
+      <div class="item item-body">
+        <img class="full-image" src="delorean.jpg">
+        <p>{{ t.post }}
+
+        </p>
+        <p>
+          <a href="#" class="subdued">1 Like</a>
+          <a href="#" class="subdued">5 Comments</a>
+        </p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Fav
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Re-Ink
+        </a>
+      </div>
+
+    </div>
+
+
+
+
+
+
+
   </ion-content>
 </ion-view>

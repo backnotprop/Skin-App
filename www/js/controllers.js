@@ -1,23 +1,28 @@
 angular.module('starter.controllers', [])
 
-    .controller('AppCtrl',function ($scope, $state) {
+
+    .controller('AuthCtrl', function ($scope, UserFactory) {
+
+            // User clicks Facebook login, so we run fb login service
+          $scope.fbLogin = function(){
+              UserFactory.doLogin();
+
+          };
 
 
+            // Eventually can add other login methods here
+
+    })
+
+.controller('FeedCtrl', function(UserFactory) {
+
+
+        UserFactory.getStatus();
 
 
     })
 
-    .controller('AuthCtrl', function ($scope) {
 
-
-
-    })
-
-.controller('FeedCtrl', function() {
-
-
-
-    })
 
 .controller('ExploreCtrl', function($scope) {
 })
