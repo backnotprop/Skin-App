@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
 
         InitFactory.initStart().then(function(thisUser){
 
-            console.log("WE MADE IT AROUND!" + thisUser.name);
+            console.log(thisUser);
 
         });
 

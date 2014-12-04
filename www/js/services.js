@@ -52,22 +52,14 @@ module
                     console.log("Have user, sending now ...");
                     $http.post('http://54.172.214.202/api/users', newUser).
                         then(function (response) {
+                            console.log(response);
+                            // insert status into LS
+                            localStorage.setItem('apiStatus', "true");
 
-                            // sever registered user
-                            if(response === "success") {
-
-                                // insert status into LS
-                                localStorage.setItem('apiStatus', "true");
-
-                                console.log("user successfully registered");
-                                // revert back to feed
-                                // feed should load now
-                                $state.go('app.feed');
-                            }
-                            // there was a server error
-                            else{
-                                console.log(response);
-                            }
+                            console.log("user successfully registered");
+                            // revert back to feed
+                            // feed should load now
+                            $state.go('app.feed');
 
                         });
                 }
@@ -128,6 +120,7 @@ module
 
                     UserApiFactory.regCheck().then(function () {
 
+                        var fid = localStorage.getItem('userid');
                         //  above function is resolved
                         UserApiFactory.grabUser().then(function (user) {
 
