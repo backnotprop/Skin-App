@@ -69,8 +69,9 @@ module
 
             },
 
-            grabUser: function(id){
+            grabUser: function(){
                 var deferred = $q.defer();
+                var id = localStorage.getItem('userid');
                 $http.get('http://54.172.214.202/api/users/' + id).then(function (response) {
 
                         // user object
@@ -120,7 +121,6 @@ module
 
                     UserApiFactory.regCheck().then(function () {
 
-                        var fid = localStorage.getItem('userid');
                         //  above function is resolved
                         UserApiFactory.grabUser().then(function (user) {
 
@@ -148,7 +148,7 @@ module
             initStoreUser: function (userObj) {
                 var deferred = $q.defer();
 
-                var fbUserId = localStorage.getItem('userId');
+                var fbUserId = localStorage.getItem('userid');
                 if(fbUserId === null){
                     // LS for global use
                     localStorage.setItem('userid', userObj.userid);
