@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('RegCtrl', function ($scope, $state, UserApiFactory) {
+.controller('RegCtrl', function ($scope, UserApiFactory) {
 
     // User clicks Register button, so we run fb login service
     $scope.userSub = function(user){

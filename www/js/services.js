@@ -54,7 +54,7 @@ module
                         then(function (response) {
 
                             // sever registered user
-                            if(response.message === "success") {
+                            if(response === "success") {
 
                                 // insert status into LS
                                 localStorage.setItem('apiStatus', "true");
@@ -106,6 +106,7 @@ module
                     $state.go('register');
                 }
                 else{
+                    console.log("User Registered");
                     deferred.resolve();
                 }
                 return deferred.promise;
