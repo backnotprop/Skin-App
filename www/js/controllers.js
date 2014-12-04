@@ -11,6 +11,7 @@ angular.module('starter.controllers', [])
         // User clicks Facebook login, so we run fb login service
       $scope.fbLogin = function(){
          Facebook.initLogin();
+
       };
 
 

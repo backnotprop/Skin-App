@@ -62,7 +62,7 @@ module
                                 console.log("user successfully registered");
                                 // revert back to feed
                                 // feed should load now
-                                $state.go('feed');
+                                $state.go('app.feed');
                             }
                             // there was a server error
                             else{
