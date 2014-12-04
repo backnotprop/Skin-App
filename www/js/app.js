@@ -20,6 +20,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleDefault();
     }
 
+
   });
 })
 
@@ -36,9 +37,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: '/app',
       abstract: true,
       templateUrl: 'templates/app.html',
+      controller: 'MainCtrl',
       resolve: {
           waitForFacebook: facebookInit()
-      }
+          }
     })
 
     // login
@@ -47,6 +49,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: 'templates/app-login.html',
         controller: 'AuthCtrl'
     })
+
+
+      // login
+      .state('register', {
+          url: '/register',
+          templateUrl: 'templates/app-regis.html',
+          controller: 'RegCtrl'
+      })
 
     // Each skin has its own nav history stack:
 

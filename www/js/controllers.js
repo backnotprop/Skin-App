@@ -1,30 +1,79 @@
 angular.module('starter.controllers', [])
 
-
-    .controller('AuthCtrl', function ($scope, UserFactory) {
-
-            // User clicks Facebook login, so we run fb login service
-          $scope.fbLogin = function(){
-              UserFactory.doLogin();
-
-          };
-
-
-            // Eventually can add other login methods here
-
-    })
-
-.controller('FeedCtrl', function(UserFactory) {
-
-
-        UserFactory.getStatus();
-
-
-    })
+.controller('MainCtrl', function($scope){
 
 
 
-.controller('ExploreCtrl', function($scope) {
+})
+
+.controller('AuthCtrl', function ($scope, Facebook) {
+
+        // User clicks Facebook login, so we run fb login service
+      $scope.fbLogin = function(){
+         Facebook.initLogin();
+
+      };
+
+
+        // Eventually can add other login methods here
+
+})
+
+.controller('RegCtrl', function ($scope, $state, UserApiFactory) {
+
+    // User clicks Register button, so we run fb login service
+    $scope.userSub = function(user){
+
+        var newUser = angular.copy(user);
+
+        UserApiFactory.sendUser(newUser).then(function(response){
+
+            if(response.message === "success"){
+                $state.go('app.feed')
+            }
+
+
+        });
+
+
+
+    };
+
+
+    // Eventually can add other login methods here
+
+})
+
+.controller('FeedCtrl', function(GetUser) {
+
+        var fbUserId = localStorage.getItem('userid');
+
+        // grab fbID if not in LS
+        if( fbUserId === null) {
+            GetUser.retUser().then(function (thisUser) {
+
+                console.log(thisUser);
+
+            }, function (reason) {
+                console.log('Failed: ' + reason);
+            });
+        }
+        // else now see if connected with api
+        else{
+
+            //grabuser form api
+
+
+        }
+
+})
+
+
+
+.controller('ExploreCtrl', function() {
+
+        var local = localStorage.getItem('userid');
+        alert(local);
 })
 
 .controller('InkCtrl', ['$scope', 'Todo', '$state',
