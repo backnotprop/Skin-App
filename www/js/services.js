@@ -37,7 +37,7 @@ module
 
     // FACTORIES =========================
 
-.factory('UserApiFactoy', function($q, $http, $state) {
+.factory('UserApiFactory', function($q, $http, $state) {
 
 
         return {
