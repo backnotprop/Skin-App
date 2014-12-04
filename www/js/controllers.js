@@ -23,45 +23,46 @@ angular.module('starter.controllers', [])
 
     // User clicks Register button, so we run fb login service
     $scope.userSub = function(user){
-
         var newUser = angular.copy(user);
-
-        UserApiFactory.sendUser(newUser).then(function(response){
-
-            if(response.message === "success"){
-                $state.go('app.feed')
-            }
-
-
-        });
-
-
+        // send user input to api
+        // this function loops back to feed
+        UserApiFactory.sendUser(newUser);
 
     };
-
-
-    // Eventually can add other login methods here
-
 })
 
-.controller('FeedCtrl', function(GetUser) {
+.controller('FeedCtrl', function(PutLsUser, $state, UserApiFactory) {
+
+        // right now the feed is the loading point,
+        // the below checks are only nessasry on this page so far
 
         var fbUserId = localStorage.getItem('userid');
+        var apiReg = localStorage.getItem('apiStatus');
 
         // grab fbID if not in LS
         if( fbUserId === null) {
-            GetUser.retUser().then(function (thisUser) {
+            // put fbId into LS
+            // this function loops back to feed
+            PutLsUser.setId();
 
-                console.log(thisUser);
-
-            }, function (reason) {
-                console.log('Failed: ' + reason);
-            });
         }
-        // else now see if connected with api
+        //  now see if connected with api
+        else if(apiReg === null){
+            // go to registration page
+            // the register function loops back to feed
+            $state.go('register');
+        }
+        // user data is set
         else{
 
-            //grabuser form api
+            // grab user data from DB
+            // return that object to the
+            // perform page functions
+            UserApiFactory.grabUser(fbUserId).then(function(response){
+
+                console.log("WE MADE IT AROUND!" + response.name);
+
+            });
 
 
         }
@@ -72,8 +73,7 @@ angular.module('starter.controllers', [])
 
 .controller('ExploreCtrl', function() {
 
-        var local = localStorage.getItem('userid');
-        alert(local);
+
 })
 
 .controller('InkCtrl', ['$scope', 'Todo', '$state',

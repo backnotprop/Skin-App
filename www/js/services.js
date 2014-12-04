@@ -35,31 +35,41 @@ module
   };
 })
 
+    // FACTORIES =========================
 
-.factory('UserApiFactoy', function($q, $http) {
+.factory('UserApiFactoy', function($q, $http, $state) {
 
 
         return {
             sendUser: function(newUser) {
-                var deferred = $q.defer();
-
 
                 if(localStorage.getItem('userid') != null){
+
+                    // gather the fb id
                     newUser.fbLog = localStorage.getItem('userid');
+
+                    // now send user obj
                     console.log("Have user, sending now ...");
+                    $http.post('http://54.172.214.202/api/users', newUser).
+                        then(function (response) {
 
-                        $http.post('http://54.172.214.202/api/users', newUser).
-                            success(function (response) {
-                                console.log("success");
-                                deferred.resolve(response);
-                            }).
-                            error(function (response) {
-                                console.log("error");
-                                deferred.resolve(response);
+                            // sever registered user
+                            if(response.message === "success") {
 
-                            });
+                                // insert status into LS
+                                localStorage.setItem('apiStatus', "true");
 
-                    return deferred.promise;
+                                console.log("user successfully registered");
+                                // revert back to feed
+                                // feed should load now
+                                $state.go('feed');
+                            }
+                            // there was a server error
+                            else{
+                                console.log(response);
+                            }
+
+                        });
                 }
                 else {
                     console.log("user was never set");
@@ -69,51 +79,50 @@ module
 
             grabUser: function(id){
                 var deferred = $q.defer();
+                $http.get('http://54.172.214.202/api/users/' + id).then(function (response) {
 
-                $http.get('http://54.172.214.202/api/users/' + id).
-                    success(function (response) {
-                        console.log("grab user success");
-                        deferred.resolve(response);
-                    }).
-                    error(function (response) {
-                        console.log("error getting user");
-                        deferred.resolve(response);
+                        // user object
+                        if(response.message !== "error") {
+                            console.log("grab user success");
+                            // response is user object
+                            deferred.resolve(response);
+
+                        }
+                        // recieved error from server, check server logs
+                        else{
+                            console.log("api error - grab user");
+                        }
 
                     });
-
                 return deferred.promise;
-
-
-
             }
         }
 
 })
 
-.factory('GetUser', function($q, Facebook, $state) {
+.factory('PutLsUser', function($q, Facebook, $state) {
 
         var initGet = function () {
-            var deferred = $q.defer();
 
             Facebook.retUser().then(function (userobj) {
 
+                // LS for global use
                 localStorage.setItem('userid', userobj.userid);
-
-                deferred.resolve(userobj);
+                // now go to feed
+                $state.go(feed);
 
             }, function (reason) {
-                console.log('Failed: ' + reason);
+                console.log('Fb ID grab Failed: ' + reason);
             });
-            return deferred.promise;
 
         };
 
         return {
-            retUser: initGet
+            setId: initGet
         }
     })
 
-// FACTORIES =========================
+
 
 /**
  * Facebook Factory
