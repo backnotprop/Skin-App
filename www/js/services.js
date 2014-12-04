@@ -83,6 +83,7 @@ module
 
                         // user object
                         if(response.message !== "error") {
+
                             console.log("grab user success");
                             // response is user object
                             deferred.resolve(response);
@@ -95,30 +96,74 @@ module
 
                     });
                 return deferred.promise;
+            },
+
+            regCheck: function(){
+                var deferred = $q.defer();
+                var status = localStorage.getItem('apiStatus');
+
+                if(status === null){
+                    $state.go('register');
+                }
+                else{
+                    deferred.resolve();
+                }
+                return deferred.promise;
             }
         }
 
 })
 
-.factory('PutLsUser', function($q, Facebook, $state) {
-
-        var initGet = function () {
-
-            Facebook.retUser().then(function (userobj) {
-
-                // LS for global use
-                localStorage.setItem('userid', userobj.userid);
-                // now go to feed
-                $state.go(feed);
-
-            }, function (reason) {
-                console.log('Fb ID grab Failed: ' + reason);
-            });
-
-        };
+.factory('InitFactory', function(Facebook, UserApiFactory, $q){
 
         return {
-            setId: initGet
+
+            initStart: function () {
+                var deferred = $q.defer();
+
+                Facebook.userAuth().then(function () {
+
+                    // above response will be resolved
+
+                    UserApiFactory.regCheck().then(function () {
+
+                        //  above function is resolved
+                        UserApiFactory.grabUser().then(function (user) {
+
+                            // above/this response is the user object
+                            deferred.resolve(user);
+
+                        })
+
+                    })
+                });
+                // user object
+                return deferred.promise;
+            }
+
+
+        }
+
+    })
+
+
+.factory('LocalStorageFactory', function($q) {
+
+        return {
+
+            initStoreUser: function (userObj) {
+                var deferred = $q.defer();
+
+                var fbUserId = localStorage.getItem('userId');
+                if(fbUserId === null){
+                    // LS for global use
+                    localStorage.setItem('userid', userObj.userid);
+
+                }
+                deferred.resolve();
+
+                return deferred.promise;
+            }
         }
     })
 
@@ -130,11 +175,11 @@ module
  * So far User data is generated using the Facebook
  * plugin.
  */
-    .factory('Facebook', function($q, $state) {
+    .factory('Facebook', function($q, $state, LocalStorageFactory) {
 
         var FB = window.facebookConnectPlugin;
 
-        var getUser  = function(){
+        var doCheck  = function(){
 
             var deferred = $q.defer();
             FB.getLoginStatus(function (response) {
@@ -152,7 +197,10 @@ module
                     ob['userid'] = uid;
                     ob['token'] = accessToken;
 
-                    deferred.resolve(ob);
+                    LocalStorageFactory.initStoreUser(ob).then(function(){
+
+                        deferred.resolve();
+                    });
 
                 } else if (response.status === 'not_authorized') {
                     console.log("not authorized");
@@ -176,18 +224,18 @@ module
 
         return {
 
-            retUser: getUser
+            userAuth: doCheck
             ,
             initLogin: function(){
-            FB.login(["public_profile"],
-            function () {
-                $state.go('app.feed');
-            }
-            ,
-            function (error) {
-                alert("Facebook Login Error" + error)
-            }
-            );
+                FB.login(["public_profile"],
+                function () {
+                    $state.go('app.feed');
+                }
+                ,
+                function (error) {
+                    alert("Facebook Login Error" + error)
+                }
+                );
             }
         }
     })
