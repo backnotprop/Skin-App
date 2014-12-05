@@ -124,7 +124,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'app-skin': {
           templateUrl: 'templates/app-profile.html',
-          controller: 'ProfileCtrl'
+          controller: 'ProfileCtrl',
+            resolve: {
+                userInit: function(InitFactory){
+                  return  InitFactory.loadUser();
+                }
+            }
+
         }
       }
     });

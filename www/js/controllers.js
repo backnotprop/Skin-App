@@ -35,9 +35,14 @@ angular.module('starter.controllers', [])
 .controller('FeedCtrl', function(InitFactory) {
 
 
+
         InitFactory.initStart().then(function(thisUser){
 
-            console.log(thisUser);
+           // var x = "username";
+              //console.log(thisUser);
+           // console.log(thisUser[0].inks[0].[username]);
+            //$scope.user = thisUser;
+
 
         });
 
@@ -52,8 +57,8 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('InkCtrl', ['$scope', 'Todo', '$state',
-        function($scope,Todo) {
+.controller('InkCtrl', ['$scope', 'Todo', 'UserApiFactory', '$state',
+        function($scope,Todo, UserApiFactory) {
 
 
             var pictureSource; // picture source
@@ -155,15 +160,17 @@ angular.module('starter.controllers', [])
                                 "Content-Type": "image/jpeg"
                             };
 
-
                            ft.upload($scope.mypicture, "https://" + data.bucket + ".s3.amazonaws.com/",
                                 function (e) {
-                                   alert("Successfully Uploaded!");
-                                   // alert(e);
+
+                                    alert("Hey " + e);
+                                    var toSend = "https://s3-us-west-1.amazonaws.com/skinimage1/" + fileName;
+                                    // send url to our server
+                                    UserApiFactory.sendImageUrl(toSend);
                                 },
                                 function (e) {
                                  //   alert("Upload failed");
-                                 alert("Error - Photo Not Uploaded");
+                                 alert("Error - Photo Not Uploaded" + e);
                                 }, options);
 
                         })
@@ -172,7 +179,7 @@ angular.module('starter.controllers', [])
                             // **** S7. Json Error ****
                             //alert(JSON.stringify(error));
 
-                            alert("Error - Photo Server Down");
+                            alert("Error - Photo Server Down" + error);
 
                         });
                     }
@@ -190,42 +197,14 @@ angular.module('starter.controllers', [])
 .controller('LocateCtrl', function($scope) {
 })
 
-.controller('ProfileCtrl', function($scope) {
+.controller('ProfileCtrl', function(userInit, $scope) {
 
-
-            $scope.items =
-            {
-                posts: [
-
-                    {
-                        username: "Bad Man",
-                        type: "image",
-                        urlRef: "Hello.txt",
-                        post: "TIME TO GET WILD",
-                        numFav: 7,
-                        date: "date here",
-                        comments: [
-                            {com_user: "michael", com_post: "good stuff"},
-                            {com_user: "alex", com_post: "hell yes"}
-                        ]
-                    },
-
-
-                    {
-                        username: "CheckerTats",
-                        type: "image",
-                        urlRef: "wild.txt",
-                        post: "So glad to be able to do this",
-                        numFav: 10,
-                        date: "date here",
-                        comments: [
-                            {com_user: "basky", com_post: "wow awesome"}
-
-                        ]
-                    }
-
-                ]
-            };
+        //console.log(userInit);
+        $scope.userName = "Halo";//userInit[0].username;
+        console.log($scope.userName);
+        $scope.items = userInit[0].inks;
+        console.log($scope.items);
 
 
 });
+

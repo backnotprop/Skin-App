@@ -69,23 +69,34 @@ module
 
             },
 
+            sendImageUrl: function(url,$state) {
+                console.log("sending url" + url);
+                    var ob = {};
+                    ob.fbLog = localStorage.getItem('userid');
+                    ob.UrlLog = url;
+                    console.log("Fb ID " + ob.fbLog);
+                    console.log("Url " + ob.UrlLog);
+
+                    // now image url
+                    console.log("Have Image: " + ob);
+                    $http.post('http://54.172.214.202/api/posts', ob).
+                        then(function (response) {
+                            console.log("URL http res" + response);
+                            $state.go('feed');
+
+                    });
+
+
+            },
+
             grabUser: function(){
                 var deferred = $q.defer();
                 var id = localStorage.getItem('userid');
-                $http.get('http://54.172.214.202/api/users/' + id).then(function (response) {
+                console.log("THIS IS ID: " + id);
+                $http.get('http://54.172.214.202/api/users/' + id)
+                    .success(function(data) {
 
-                        // user object
-                        if(response.message !== "error") {
-
-                            console.log("grab user success");
-                            // response is user object
-                            deferred.resolve(response);
-
-                        }
-                        // recieved error from server, check server logs
-                        else{
-                            console.log("api error - grab user");
-                        }
+                            deferred.resolve(data);
 
                     });
                 return deferred.promise;
@@ -133,6 +144,21 @@ module
                 });
                 // user object
                 return deferred.promise;
+            },
+
+            loadUser: function(){
+
+                var deferred = $q.defer();
+                UserApiFactory.grabUser().then(function (user) {
+
+                    // above/this response is the user object
+                    console.log("Inside load User");
+                    deferred.resolve(user);
+
+                });
+                return deferred.promise;
+
+
             }
 
 
@@ -141,22 +167,20 @@ module
     })
 
 
-.factory('LocalStorageFactory', function($q) {
+.factory('LocalStorageFactory', function() {
 
         return {
 
             initStoreUser: function (userObj) {
-                var deferred = $q.defer();
 
+                var toStore = userObj;
+                //console.log("To Store: " + toStore);
                 var fbUserId = localStorage.getItem('userid');
                 if(fbUserId === null){
                     // LS for global use
-                    localStorage.setItem('userid', userObj.userid);
-
+                    localStorage.setItem('userid', toStore.userid);
                 }
-                deferred.resolve();
 
-                return deferred.promise;
             }
         }
     })
@@ -191,10 +215,11 @@ module
                     ob['userid'] = uid;
                     ob['token'] = accessToken;
 
-                    LocalStorageFactory.initStoreUser(ob).then(function(){
+                    //console.log(ob);
+                    LocalStorageFactory.initStoreUser(ob);
 
-                        deferred.resolve();
-                    });
+                    deferred.resolve();
+
 
                 } else if (response.status === 'not_authorized') {
                     console.log("not authorized");

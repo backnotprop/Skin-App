@@ -25,22 +25,23 @@
         </tr></table>
     </div>
 
-    <div id ="profFeed" class="list card" ng-repeat="t in items.posts">
+    <div id ="profFeed" class="list card" ng-repeat="t in items">
 
       <div class="item item-avatar">
         <img src="http://media-cache-ak0.pinimg.com/236x/92/18/a7/9218a7f582f6981c6f0f65cdf3bb4c29.jpg">
-        <a href="/skin?uname={{t.username}}"><h2> {{ t.username }}</h2></a>
-        <p>November 05, 1955</p> {{ t.date }}
+        <a href="/skin?uname={{userName}}"><h2> {{ userName }}</h2></a>
+        <p>November 05, 1955 (HARDCODE)</p>
       </div>
 
       <div class="item item-body">
-        <img class="full-image" src="delorean.jpg">
-        <p>{{ t.post }}
-
+        <img class="full-image" src="{{t.urlRef}}">
+        <p>
+          <!-- {{ t.post }} -->
+          Post Goes Here (HARD)
         </p>
         <p>
-          <a href="#" class="subdued">1 Like</a>
-          <a href="#" class="subdued">5 Comments</a>
+          <a href="#" class="subdued">1 Like (HARD)</a>
+          <a href="#" class="subdued">5 Comments(HARD)</a>
         </p>
       </div>
 
