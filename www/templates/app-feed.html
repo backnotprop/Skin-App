@@ -2,44 +2,45 @@
   <ion-content class="padding">
 
 
+    <div id ="profFeed" class="list card" ng-repeat="i in items">
+      <div ng-repeat="inks in i.inks">
 
-    <div id ="inkFeed" class="list card" ng-repeat="t in items.posts">
+        <div class="item item-avatar">
+          <img src="http://media-cache-ak0.pinimg.com/236x/92/18/a7/9218a7f582f6981c6f0f65cdf3bb4c29.jpg">
+          <a href="/skin?uname={{userName}}"><h2> {{ userName }}</h2></a>
+          <p>November 05, 1955 (HARDCODE)</p>
+        </div>
 
-      <div class="item item-avatar">
-        <img src="{{ t.urlRef}}">
-        <a href="/skin?uname={{t.username}}"><h2> {{ t.username }}</h2></a>
-        <p>November 05, 1955</p> {{ t.date }}
-      </div>
+        <div class="item item-body">
+          <img class="full-image" src="{{inks.urlRef}}">
 
-      <div class="item item-body">
-        <img class="full-image" src="delorean.jpg">
-        <p>{{ t.post }}
+          <p>
+            <!-- {{ t.post }} -->
+            Post Goes Here (HARD)
+          </p>
+          <p>
+            <a href="#" class="subdued">1 Like (HARD)</a>
+            <a href="#" class="subdued">5 Comments(HARD)</a>
+          </p>
+        </div>
 
-        </p>
-        <p>
-          <a href="#" class="subdued">1 Like</a>
-          <a href="#" class="subdued">5 Comments</a>
-        </p>
-      </div>
-
-      <div class="item tabs tabs-secondary tabs-icon-left">
-        <a class="tab-item" href="#">
-          <i class="icon ion-thumbsup"></i>
-          Fav
-        </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-chatbox"></i>
-          Comment
-        </a>
-        <a class="tab-item" href="#">
-          <i class="icon ion-share"></i>
-          Re-Ink
-        </a>
+        <div class="item tabs tabs-secondary tabs-icon-left">
+          <a class="tab-item" href="#">
+            <i class="icon ion-thumbsup"></i>
+            Fav
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-chatbox"></i>
+            Comment
+          </a>
+          <a class="tab-item" href="#">
+            <i class="icon ion-share"></i>
+            Re-Ink
+          </a>
+        </div>
       </div>
 
     </div>
-
-
 
 
 

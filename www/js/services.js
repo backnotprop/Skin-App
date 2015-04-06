@@ -101,6 +101,17 @@ module
                     });
                 return deferred.promise;
             },
+            grabUsers: function(){
+                var deferred = $q.defer();
+                console.log("Grabbing Users");
+                $http.get('http://54.172.214.202/api/users/')
+                    .success(function(data) {
+
+                        deferred.resolve(data);
+
+                    });
+                return deferred.promise;
+            },
 
             regCheck: function(){
                 var deferred = $q.defer();
@@ -153,6 +164,22 @@ module
 
                     // above/this response is the user object
                     console.log("Inside load User");
+                    console.log(user);
+                    deferred.resolve(user);
+
+                });
+                return deferred.promise;
+
+
+            },
+
+            loadUsers: function(){
+
+                var deferred = $q.defer();
+                UserApiFactory.grabUsers().then(function (user) {
+
+                    // above/this response is the user object
+                    console.log("Inside load Users");
                     deferred.resolve(user);
 
                 });

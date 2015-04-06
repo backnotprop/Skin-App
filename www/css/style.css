@@ -148,3 +148,89 @@
     padding-right: 0;
     width: 100%;
 }
+
+/*-------- EXPLORE ---------*/
+
+
+
+#listitem1{
+    background-image: url("../img/exploreimages/abstract.jpg");
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    position:relative;
+    min-width:100%;
+    min-height:20vh;
+    background-size:100% 100%;
+}
+
+#listitem2{
+    background-image: url("../img/exploreimages/surrealist.jpg");
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    position:relative;
+    min-width:100%;
+    min-height:20vh;
+    background-size:100% 100%;
+}
+
+#listitem3{
+    background-image: url("../img/exploreimages/religious.jpg");
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    position:relative;
+    min-width:100%;
+    min-height:20vh;
+    background-size:100% 100%;
+}
+
+#listitem4{
+    background-image: url("../img/exploreimages/bw.jpg");
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    position:relative;
+    min-width:100%;
+    min-height:20vh;
+    background-size:100% 100%;
+
+}
+
+#listitem5{
+    background-image: url("../img/exploreimages/realism.jpg");
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    position:relative;
+    min-width:100%;
+    min-height:20vh;
+    background-size:100% 100%;
+
+}
+#listitemh2{
+
+
+    position:absolute;
+    left:5px;
+    bottom:0px;
+}
+
+#rightarrow{
+    margin-right: 100;
+    position:absolute;
+    right:5px;
+    font-size:60px;
+    color:white;
+}

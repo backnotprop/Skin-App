@@ -58,6 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'RegCtrl'
       })
 
+
     // Each skin has its own nav history stack:
 
     .state('app.feed', {
@@ -65,10 +66,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
             'app-feed': {
                 templateUrl: 'templates/app-feed.html',
-                controller: 'FeedCtrl'
+                controller: 'FeedCtrl',
+                resolve: {
+                    userInit: function(InitFactory){
+                        return  InitFactory.loadUsers();
+                    }
+                }
             }
       }
     })
+
+
 
       .state('app.explore', {
           url: '/explore',
@@ -137,7 +145,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // if none of the above states are matched, use this as the
   // take user to feed
-  $urlRouterProvider.otherwise('/app/feed');
+  $urlRouterProvider.otherwise('/app/explore');
 
 });
 
