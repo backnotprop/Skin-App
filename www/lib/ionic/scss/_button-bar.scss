@@ -26,11 +26,7 @@
 .button-bar > .button {
   @include flex(1);
   display: block;
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   overflow: hidden;
 
   padding: 0 16px;
@@ -49,7 +45,6 @@
   }
 
   &:first-child {
-<<<<<<< HEAD
     border-radius: $button-border-radius 0px 0px $button-border-radius;
   }
   &:last-child {
@@ -62,12 +57,5 @@
   &:before,
   .icon:before {
     line-height: 28px;
-=======
-    border-radius: 2px 0px 0px 2px;
-  }
-  &:last-child {
-    border-right-width: 1px;
-    border-radius: 0px 2px 2px 0px;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
 }

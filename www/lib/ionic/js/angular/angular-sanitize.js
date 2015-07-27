@@ -1,9 +1,5 @@
 /**
-<<<<<<< HEAD
  * @license AngularJS v1.3.13
-=======
- * @license AngularJS v1.2.25
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -49,7 +45,6 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
  * @kind function
  *
  * @description
-<<<<<<< HEAD
  *   The input is sanitized by parsing the HTML into tokens. All safe tokens (from a whitelist) are
  *   then serialized back to properly escaped html string. This means that no unsafe input can make
  *   it into the returned string, however, since our parser is more strict than a typical browser
@@ -60,18 +55,6 @@ var $sanitizeMinErr = angular.$$minErr('$sanitize');
  *
  * @param {string} html HTML input.
  * @returns {string} Sanitized HTML.
-=======
- *   The input is sanitized by parsing the html into tokens. All safe tokens (from a whitelist) are
- *   then serialized back to properly escaped html string. This means that no unsafe input can make
- *   it into the returned string, however, since our parser is more strict than a typical browser
- *   parser, it's possible that some obscure input, which would be recognized as valid HTML by a
- *   browser, won't make it through the sanitizer.
- *   The whitelist is configured using the functions `aHrefSanitizationWhitelist` and
- *   `imgSrcSanitizationWhitelist` of {@link ng.$compileProvider `$compileProvider`}.
- *
- * @param {string} html Html input.
- * @returns {string} Sanitized html.
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
  *
  * @example
    <example module="sanitizeExample" deps="angular-sanitize.js">
@@ -215,15 +198,12 @@ var inlineElements = angular.extend({}, optionalEndTagInlineElements, makeMap("a
         "bdi,bdo,big,br,cite,code,del,dfn,em,font,i,img,ins,kbd,label,map,mark,q,ruby,rp,rt,s," +
         "samp,small,span,strike,strong,sub,sup,time,tt,u,var"));
 
-<<<<<<< HEAD
 // SVG Elements
 // https://wiki.whatwg.org/wiki/Sanitization_rules#svg_Elements
 var svgElements = makeMap("animate,animateColor,animateMotion,animateTransform,circle,defs," +
         "desc,ellipse,font-face,font-face-name,font-face-src,g,glyph,hkern,image,linearGradient," +
         "line,marker,metadata,missing-glyph,mpath,path,polygon,polyline,radialGradient,rect,set," +
         "stop,svg,switch,text,title,tspan,use");
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
 // Special Elements (can contain anything)
 var specialElements = makeMap("script,style");
@@ -232,7 +212,6 @@ var validElements = angular.extend({},
                                    voidElements,
                                    blockElements,
                                    inlineElements,
-<<<<<<< HEAD
                                    optionalEndTagElements,
                                    svgElements);
 
@@ -268,18 +247,6 @@ var validAttrs = angular.extend({},
                                 uriAttrs,
                                 svgAttrs,
                                 htmlAttrs);
-=======
-                                   optionalEndTagElements);
-
-//Attributes that have href and hence need to be sanitized
-var uriAttrs = makeMap("background,cite,href,longdesc,src,usemap");
-var validAttrs = angular.extend({}, uriAttrs, makeMap(
-    'abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,'+
-    'color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,'+
-    'ismap,lang,language,nohref,nowrap,rel,rev,rows,rowspan,rules,'+
-    'scope,scrolling,shape,size,span,start,summary,target,title,type,'+
-    'valign,value,vspace,width'));
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
 function makeMap(str) {
   var obj = {}, items = str.split(','), i;
@@ -300,11 +267,7 @@ function makeMap(str) {
  * @param {string} html string
  * @param {object} handler
  */
-<<<<<<< HEAD
 function htmlParser(html, handler) {
-=======
-function htmlParser( html, handler ) {
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   if (typeof html !== 'string') {
     if (html === null || typeof html === 'undefined') {
       html = '';
@@ -313,20 +276,13 @@ function htmlParser( html, handler ) {
     }
   }
   var index, chars, match, stack = [], last = html, text;
-<<<<<<< HEAD
   stack.last = function() { return stack[stack.length - 1]; };
 
   while (html) {
-=======
-  stack.last = function() { return stack[ stack.length - 1 ]; };
-
-  while ( html ) {
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     text = '';
     chars = true;
 
     // Make sure we're not in a script or style element
-<<<<<<< HEAD
     if (!stack.last() || !specialElements[stack.last()]) {
 
       // Comment
@@ -354,40 +310,10 @@ function htmlParser( html, handler ) {
         if (match) {
           html = html.substring(match[0].length);
           match[0].replace(END_TAG_REGEXP, parseEndTag);
-=======
-    if ( !stack.last() || !specialElements[ stack.last() ] ) {
-
-      // Comment
-      if ( html.indexOf("<!--") === 0 ) {
-        // comments containing -- are not allowed unless they terminate the comment
-        index = html.indexOf("--", 4);
-
-        if ( index >= 0 && html.lastIndexOf("-->", index) === index) {
-          if (handler.comment) handler.comment( html.substring( 4, index ) );
-          html = html.substring( index + 3 );
-          chars = false;
-        }
-      // DOCTYPE
-      } else if ( DOCTYPE_REGEXP.test(html) ) {
-        match = html.match( DOCTYPE_REGEXP );
-
-        if ( match ) {
-          html = html.replace( match[0], '');
-          chars = false;
-        }
-      // end tag
-      } else if ( BEGING_END_TAGE_REGEXP.test(html) ) {
-        match = html.match( END_TAG_REGEXP );
-
-        if ( match ) {
-          html = html.substring( match[0].length );
-          match[0].replace( END_TAG_REGEXP, parseEndTag );
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           chars = false;
         }
 
       // start tag
-<<<<<<< HEAD
       } else if (BEGIN_TAG_REGEXP.test(html)) {
         match = html.match(START_TAG_REGEXP);
 
@@ -396,16 +322,6 @@ function htmlParser( html, handler ) {
           if (match[4]) {
             html = html.substring(match[0].length);
             match[0].replace(START_TAG_REGEXP, parseStartTag);
-=======
-      } else if ( BEGIN_TAG_REGEXP.test(html) ) {
-        match = html.match( START_TAG_REGEXP );
-
-        if ( match ) {
-          // We only have a valid start-tag if there is a '>'.
-          if ( match[4] ) {
-            html = html.substring( match[0].length );
-            match[0].replace( START_TAG_REGEXP, parseStartTag );
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           }
           chars = false;
         } else {
@@ -415,7 +331,6 @@ function htmlParser( html, handler ) {
         }
       }
 
-<<<<<<< HEAD
       if (chars) {
         index = html.indexOf("<");
 
@@ -432,38 +347,14 @@ function htmlParser( html, handler ) {
           text = text.replace(COMMENT_REGEXP, "$1").replace(CDATA_REGEXP, "$1");
 
           if (handler.chars) handler.chars(decodeEntities(text));
-=======
-      if ( chars ) {
-        index = html.indexOf("<");
-
-        text += index < 0 ? html : html.substring( 0, index );
-        html = index < 0 ? "" : html.substring( index );
-
-        if (handler.chars) handler.chars( decodeEntities(text) );
-      }
-
-    } else {
-      html = html.replace(new RegExp("(.*)<\\s*\\/\\s*" + stack.last() + "[^>]*>", 'i'),
-        function(all, text){
-          text = text.replace(COMMENT_REGEXP, "$1").replace(CDATA_REGEXP, "$1");
-
-          if (handler.chars) handler.chars( decodeEntities(text) );
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
           return "";
       });
 
-<<<<<<< HEAD
       parseEndTag("", stack.last());
     }
 
     if (html == last) {
-=======
-      parseEndTag( "", stack.last() );
-    }
-
-    if ( html == last ) {
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       throw $sanitizeMinErr('badparse', "The sanitizer was unable to parse the following block " +
                                         "of html: {0}", html);
     }
@@ -473,7 +364,6 @@ function htmlParser( html, handler ) {
   // Clean up any remaining tags
   parseEndTag();
 
-<<<<<<< HEAD
   function parseStartTag(tag, tagName, rest, unary) {
     tagName = angular.lowercase(tagName);
     if (blockElements[tagName]) {
@@ -490,24 +380,6 @@ function htmlParser( html, handler ) {
 
     if (!unary)
       stack.push(tagName);
-=======
-  function parseStartTag( tag, tagName, rest, unary ) {
-    tagName = angular.lowercase(tagName);
-    if ( blockElements[ tagName ] ) {
-      while ( stack.last() && inlineElements[ stack.last() ] ) {
-        parseEndTag( "", stack.last() );
-      }
-    }
-
-    if ( optionalEndTagElements[ tagName ] && stack.last() == tagName ) {
-      parseEndTag( "", tagName );
-    }
-
-    unary = voidElements[ tagName ] || !!unary;
-
-    if ( !unary )
-      stack.push( tagName );
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
     var attrs = {};
 
@@ -520,7 +392,6 @@ function htmlParser( html, handler ) {
 
         attrs[name] = decodeEntities(value);
     });
-<<<<<<< HEAD
     if (handler.start) handler.start(tagName, attrs, unary);
   }
 
@@ -537,24 +408,6 @@ function htmlParser( html, handler ) {
       // Close all the open elements, up the stack
       for (i = stack.length - 1; i >= pos; i--)
         if (handler.end) handler.end(stack[i]);
-=======
-    if (handler.start) handler.start( tagName, attrs, unary );
-  }
-
-  function parseEndTag( tag, tagName ) {
-    var pos = 0, i;
-    tagName = angular.lowercase(tagName);
-    if ( tagName )
-      // Find the closest opened tag of the same type
-      for ( pos = stack.length - 1; pos >= 0; pos-- )
-        if ( stack[ pos ] == tagName )
-          break;
-
-    if ( pos >= 0 ) {
-      // Close all the open elements, up the stack
-      for ( i = stack.length - 1; i >= pos; i-- )
-        if (handler.end) handler.end( stack[ i ] );
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
       // Remove the open elements from the stack
       stack.length = pos;
@@ -600,20 +453,12 @@ function decodeEntities(value) {
 function encodeEntities(value) {
   return value.
     replace(/&/g, '&amp;').
-<<<<<<< HEAD
     replace(SURROGATE_PAIR_REGEXP, function(value) {
-=======
-    replace(SURROGATE_PAIR_REGEXP, function (value) {
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       var hi = value.charCodeAt(0);
       var low = value.charCodeAt(1);
       return '&#' + (((hi - 0xD800) * 0x400) + (low - 0xDC00) + 0x10000) + ';';
     }).
-<<<<<<< HEAD
     replace(NON_ALPHANUMERIC_REGEXP, function(value) {
-=======
-    replace(NON_ALPHANUMERIC_REGEXP, function(value){
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       return '&#' + value.charCodeAt(0) + ';';
     }).
     replace(/</g, '&lt;').
@@ -630,19 +475,11 @@ function encodeEntities(value) {
  *     comment: function(text) {}
  * }
  */
-<<<<<<< HEAD
 function htmlSanitizeWriter(buf, uriValidator) {
   var ignore = false;
   var out = angular.bind(buf, buf.push);
   return {
     start: function(tag, attrs, unary) {
-=======
-function htmlSanitizeWriter(buf, uriValidator){
-  var ignore = false;
-  var out = angular.bind(buf, buf.push);
-  return {
-    start: function(tag, attrs, unary){
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       tag = angular.lowercase(tag);
       if (!ignore && specialElements[tag]) {
         ignore = tag;
@@ -650,11 +487,7 @@ function htmlSanitizeWriter(buf, uriValidator){
       if (!ignore && validElements[tag] === true) {
         out('<');
         out(tag);
-<<<<<<< HEAD
         angular.forEach(attrs, function(value, key) {
-=======
-        angular.forEach(attrs, function(value, key){
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           var lkey=angular.lowercase(key);
           var isImage = (tag === 'img' && lkey === 'src') || (lkey === 'background');
           if (validAttrs[lkey] === true &&
@@ -669,11 +502,7 @@ function htmlSanitizeWriter(buf, uriValidator){
         out(unary ? '/>' : '>');
       }
     },
-<<<<<<< HEAD
     end: function(tag) {
-=======
-    end: function(tag){
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
         tag = angular.lowercase(tag);
         if (!ignore && validElements[tag] === true) {
           out('</');
@@ -684,11 +513,7 @@ function htmlSanitizeWriter(buf, uriValidator){
           ignore = false;
         }
       },
-<<<<<<< HEAD
     chars: function(chars) {
-=======
-    chars: function(chars){
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
         if (!ignore) {
           out(encodeEntities(chars));
         }
@@ -804,11 +629,7 @@ angular.module('ngSanitize', []).provider('$sanitize', $SanitizeProvider);
  */
 angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
   var LINKY_URL_REGEXP =
-<<<<<<< HEAD
         /((ftp|https?):\/\/|(www\.)|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"”’]/,
-=======
-        /((ftp|https?):\/\/|(mailto:)?[A-Za-z0-9._%+-]+@)\S*[^\s.;,(){}<>"]/,
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       MAILTO_REGEXP = /^mailto:/;
 
   return function(text, target) {
@@ -821,15 +642,10 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
     while ((match = raw.match(LINKY_URL_REGEXP))) {
       // We can not end in these as they are sometimes found at the end of the sentence
       url = match[0];
-<<<<<<< HEAD
       // if we did not match ftp/http/www/mailto then assume mailto
       if (!match[2] && !match[4]) {
         url = (match[3] ? 'http://' : 'mailto:') + url;
       }
-=======
-      // if we did not match ftp/http/mailto then assume mailto
-      if (match[2] == match[3]) url = 'mailto:' + url;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       i = match.index;
       addText(raw.substr(0, i));
       addLink(url, match[0].replace(MAILTO_REGEXP, ''));
@@ -848,7 +664,6 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
     function addLink(url, text) {
       html.push('<a ');
       if (angular.isDefined(target)) {
-<<<<<<< HEAD
         html.push('target="',
                   target,
                   '" ');
@@ -856,15 +671,6 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
       html.push('href="',
                 url.replace(/"/g, '&quot;'),
                 '">');
-=======
-        html.push('target="');
-        html.push(target);
-        html.push('" ');
-      }
-      html.push('href="');
-      html.push(url);
-      html.push('">');
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
       addText(text);
       html.push('</a>');
     }

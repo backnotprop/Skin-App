@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<<<<<<< HEAD
 <widget id="com.ionicframework.myapp415004" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>myApp</name>
-=======
-<widget id="com.ionicframework.skinapp917114" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>skinApp</name>
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   <description>
         An Ionic Framework and Cordova project.
     </description>
@@ -17,7 +12,6 @@
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
-<<<<<<< HEAD
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
@@ -53,10 +47,4 @@
     <splash src="resources/ios/splash/Default@2x~iphone.png" height="960" width="640"/>
     <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
   </platform>
-=======
-  <preference name="BackupWebStorage" value="none"/>
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 </widget>

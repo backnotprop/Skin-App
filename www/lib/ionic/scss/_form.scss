@@ -53,11 +53,7 @@ textarea {
 
   input {
     @include border-radius(0);
-<<<<<<< HEAD
     @include flex(1, 220px);
-=======
-    @include flex(1, 0, 220px);
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     @include appearance(none);
     margin: 0;
     padding-right: 24px;
@@ -83,13 +79,10 @@ textarea {
     min-width: 14px;
   }
 }
-<<<<<<< HEAD
 // prevent flex-shrink on WP
 .platform-windowsphone .item-input input{
   flex-shrink: 1;
 }
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
 .item-input-inset {
   @include display-flex();
@@ -121,10 +114,6 @@ textarea {
 }
 
 .input-label {
-<<<<<<< HEAD
-=======
-  @include flex(1, 0, 100px);
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   display: table;
   padding: 7px 10px 7px 0px;
   max-width: 200px;
@@ -228,7 +217,6 @@ input[type="color"] {
   }
 }
 
-<<<<<<< HEAD
 .item-input {
   input,
   textarea {
@@ -236,12 +224,6 @@ input[type="color"] {
   }
 }
 
-=======
-input,
-textarea {
-  width: 100%;
-}
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 textarea {
   padding-left: 0;
   @include placeholder($input-color-placeholder, -3px);
@@ -279,7 +261,6 @@ input[type="checkbox"] {
 }
 
 // Reset width of input images, buttons, radios, checkboxes
-<<<<<<< HEAD
 .item-input {
   input[type="file"],
   input[type="image"],
@@ -290,16 +271,6 @@ input[type="checkbox"] {
   input[type="checkbox"] {
     width: auto; // Override of generic input selector
   }
-=======
-input[type="file"],
-input[type="image"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="radio"],
-input[type="checkbox"] {
-  width: auto; // Override of generic input selector
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 // Set the height of file to match text inputs

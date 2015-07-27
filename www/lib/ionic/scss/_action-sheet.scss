@@ -4,11 +4,7 @@
  */
 
 .action-sheet-backdrop {
-<<<<<<< HEAD
   @include transition(background-color 150ms ease-in-out);
-=======
-  @include transition(background-color 300ms ease-in-out);
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   position: fixed;
   top: 0;
   left: 0;
@@ -18,17 +14,12 @@
   background-color: rgba(0,0,0,0);
 
   &.active {
-<<<<<<< HEAD
     background-color: rgba(0,0,0,0.4);
-=======
-    background-color: rgba(0,0,0,0.5);
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
 }
 
 .action-sheet-wrapper {
   @include translate3d(0, 100%, 0);
-<<<<<<< HEAD
   @include transition(all cubic-bezier(.36, .66, .04, 1) 500ms);
   position: absolute;
   bottom: 0;
@@ -37,12 +28,6 @@
   width: 100%;
   max-width: 500px;
   margin: auto;
-=======
-  @include transition(all ease-in-out 300ms);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 .action-sheet-up {
@@ -50,13 +35,8 @@
 }
 
 .action-sheet {
-<<<<<<< HEAD
   margin-left: $sheet-margin;
   margin-right: $sheet-margin;
-=======
-  margin-left: 15px;
-  margin-right: 15px;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   width: auto;
   z-index: $z-index-action-sheet;
   overflow: hidden;
@@ -66,7 +46,6 @@
     padding: 1px;
     width: 100%;
     border-radius: 0;
-<<<<<<< HEAD
     border-color: $sheet-options-border-color;
     background-color: transparent;
 
@@ -112,46 +91,12 @@
 
   .button {
     border-width: 1px 0px 0px 0px;
-=======
-
-    background-color: transparent;
-
-    color: $positive;
-    font-size: 18px;
-
-    &.destructive {
-      color: $assertive;
-    }
-  }
-}
-
-.action-sheet-title {
-  padding: 10px;
-  color: lighten($base-color, 40%);
-  text-align: center;
-  font-size: 12px;
-}
-
-.action-sheet-group {
-  margin-bottom: 5px;
-  border-radius: $sheet-border-radius;
-  background-color: #fff;
-  .button {
-    border-width: 1px 0px 0px 0px;
-    border-radius: 0;
-
-    &.active {
-      background-color: transparent;
-      color: inherit;
-    }
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
   .button:first-child:last-child {
     border-width: 0;
   }
 }
 
-<<<<<<< HEAD
 .action-sheet-options {
   background: $sheet-options-bg-color;
 }
@@ -162,8 +107,6 @@
   }
 }
 
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 .action-sheet-open {
   pointer-events: none;
 
@@ -175,7 +118,6 @@
     pointer-events: auto;
   }
 }
-<<<<<<< HEAD
 
 
 .platform-android {
@@ -226,5 +168,3 @@
   }
 
 }
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44

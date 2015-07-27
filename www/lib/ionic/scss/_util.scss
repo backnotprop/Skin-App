@@ -65,7 +65,6 @@
 .click-block {
   position: absolute;
   top: 0;
-<<<<<<< HEAD
   right: 0;
   bottom: 0;
   left: 0;
@@ -76,13 +75,6 @@
 }
 .click-block-hide {
   @include translate3d(-9999px, 0, 0);
-=======
-  left: 0;
-  z-index: $z-index-click-block;
-  width: 100%;
-  height: 100%;
-  background: transparent;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 .no-resize {
@@ -151,7 +143,6 @@
 
 
 /**
-<<<<<<< HEAD
  * Scrollable iFrames
  * --------------------------------------------------
  */
@@ -169,8 +160,6 @@
 
 
 /**
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
  * Rounded
  * --------------------------------------------------
  */
@@ -277,7 +266,6 @@
 .dark-border {
   border-color: $button-dark-border;
 }
-<<<<<<< HEAD
 
 [collection-repeat] {
   /* Position is set by transforms */
@@ -306,5 +294,3 @@
 .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
   display: none !important;
 }
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44

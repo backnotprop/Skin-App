@@ -13,11 +13,7 @@
   left: 0;
   z-index: $z-index-bar;
 
-<<<<<<< HEAD
   @include box-sizing(border-box);
-=======
-  box-sizing: border-box;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   padding: $bar-padding-portrait;
 
   width: 100%;
@@ -147,10 +143,7 @@
     white-space: nowrap;
 
     font-size: $bar-title-font-size;
-<<<<<<< HEAD
     font-weight: $headings-font-weight;
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
     line-height: $bar-height;
 
@@ -213,30 +206,16 @@
     }
 
     &.back-button {
-<<<<<<< HEAD
       display: block;
       margin-right: 5px;
       padding: 0;
       white-space: nowrap;
       font-weight: 400;
-=======
-      padding: 0;
-      opacity: 0.8;
-      .back-button-title {
-        display: inline-block;
-        vertical-align: middle;
-        margin-left: 4px;
-      }
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     }
 
     &.back-button.active,
     &.back-button.activated {
-<<<<<<< HEAD
       opacity: 0.2;
-=======
-      opacity: 1;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     }
   }
 
@@ -253,7 +232,6 @@
 
   // Android 4.4 messes with the display property
   .buttons,
-<<<<<<< HEAD
   .buttons.primary-buttons,
   .buttons.secondary-buttons {
     display: inherit;
@@ -268,14 +246,6 @@
   .buttons-right span {
     margin-left: 5px;
     display: inherit;
-=======
-  .buttons.left-buttons,
-  .buttons.right-buttons {
-    display: inherit;
-  }
-  .buttons span {
-    display: inline-flex;
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
 
   // Place the last button in a bar on the right of the bar
@@ -292,7 +262,6 @@
 
 }
 
-<<<<<<< HEAD
 .platform-android {
 
   .nav-bar-has-subheader .bar {
@@ -313,8 +282,6 @@
 
 }
 
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 // Default styles for buttons inside of styled bars
 .bar-light {
   .button {
@@ -378,7 +345,6 @@
   border-bottom-width: 1px;
   &.has-tabs-top{
     border-bottom-width: 0px;
-<<<<<<< HEAD
     background-image: none;
   }
 }
@@ -386,10 +352,6 @@
   border-bottom-width: 0px;
   background-image: none;
 }
-=======
-  }
-}
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
 // Footer at bottom
 .bar-footer {
@@ -398,11 +360,8 @@
   border-bottom-width: 0;
   background-position: top;
 
-<<<<<<< HEAD
   height: $bar-footer-height;
 
-=======
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   &.item-input-inset {
     position: absolute;
   }
@@ -416,7 +375,6 @@
 .bar-subheader {
   top: $bar-height;
   display: block;
-<<<<<<< HEAD
 
   height: $bar-subheader-height;
 }
@@ -444,10 +402,3 @@
   background-image: none;
 }
 
-=======
-}
-.bar-subfooter {
-  bottom: $bar-height;
-  display: block;
-}
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44

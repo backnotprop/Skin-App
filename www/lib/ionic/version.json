@@ -1,13 +1,6 @@
 {
-<<<<<<< HEAD
   "version": "1.0.1",
   "codename": "vanadium-vaquita",
   "date": "2015-06-30",
   "time": "16:26:56"
-=======
-  "version": "1.0.0-beta.13",
-  "codename": "lanthanum-leopard",
-  "date": "2014-09-24",
-  "time": "20:17:36"
->>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
