@@ -1,0 +1,34 @@
+<ion-view title="Find Artists">
+    <ion-content class="padding">
+
+
+
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+
+
+        <div>
+
+            <a  ng-repeat="item in items "
+                href="#/{{item.id}}"
+                class="item item-thumbnail-left">
+
+                <img ng-src="{{ item.image }}">
+                <h2>{{ item.op }}</h2>
+                <h4> {{ item.op1 }}</h4>
+            </a>
+
+        </div >
+        </div>
+
+
+
+
+
+    </ion-content>
+</ion-view>

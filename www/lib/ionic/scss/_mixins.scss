@@ -16,7 +16,11 @@
   &.activated {
     border-color: $active-border-color;
     background-color: $active-bg-color;
+<<<<<<< HEAD
     box-shadow: inset 0 1px 4px rgba(0,0,0,0.1);
+=======
+    box-shadow: inset 0px 1px 3px rgba(0,0,0,0.15);
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
 }
 
@@ -119,16 +123,23 @@
   &::-webkit-slider-thumb:before {
     background: $track-bg-color;
   }
+<<<<<<< HEAD
   &::-ms-fill-lower{
     background: $track-bg-color;
   }
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 
 // Checkbox Mixins
 // --------------------------------------------------
 
+<<<<<<< HEAD
 @mixin checkbox-style($off-border-color, $on-bg-color, $on-border-color) {
+=======
+@mixin checkbox-style($off-border-color, $on-bg-color) {
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   & input:before,
   & .checkbox-icon:before {
     border-color: $off-border-color;
@@ -138,7 +149,10 @@
   & input:checked:before,
   & input:checked + .checkbox-icon:before {
     background: $on-bg-color;
+<<<<<<< HEAD
     border-color: $on-border-color;
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
 }
 
@@ -153,6 +167,7 @@
     background-color: $on-bg-color;
   }
 }
+<<<<<<< HEAD
 @mixin toggle-small-style($on-bg-color) {
   // the track when the toggle is "on"
   & input:checked + .track {
@@ -162,6 +177,8 @@
     background-color: $on-bg-color;
   }
 }
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
 
 // Clearfix
@@ -185,7 +202,11 @@
 // --------------------------------------------------
 
 @mixin placeholder($color: $input-color-placeholder, $text-indent: 0) {
+<<<<<<< HEAD
   &::-moz-placeholder { // Firefox 19+
+=======
+  &::-moz-placeholder { /* Firefox 19+ */
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     color: $color;
   }
   &:-ms-input-placeholder {
@@ -266,24 +287,44 @@
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
+<<<<<<< HEAD
+=======
+     -moz-border-radius: $radius;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           border-radius: $radius;
 }
 
 // Single Corner Border Radius
 @mixin border-top-left-radius($radius) {
   -webkit-border-top-left-radius: $radius;
+<<<<<<< HEAD
+=======
+      -moz-border-radius-topleft: $radius;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           border-top-left-radius: $radius;
 }
 @mixin border-top-right-radius($radius) {
   -webkit-border-top-right-radius: $radius;
+<<<<<<< HEAD
+=======
+      -moz-border-radius-topright: $radius;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           border-top-right-radius: $radius;
 }
 @mixin border-bottom-right-radius($radius) {
   -webkit-border-bottom-right-radius: $radius;
+<<<<<<< HEAD
+=======
+      -moz-border-radius-bottomright: $radius;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           border-bottom-right-radius: $radius;
 }
 @mixin border-bottom-left-radius($radius) {
   -webkit-border-bottom-left-radius: $radius;
+<<<<<<< HEAD
+=======
+      -moz-border-radius-bottomleft: $radius;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           border-bottom-left-radius: $radius;
 }
 
@@ -311,6 +352,10 @@
 
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
+<<<<<<< HEAD
+=======
+     -moz-box-shadow: $shadow;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           box-shadow: $shadow;
 }
 
@@ -320,27 +365,51 @@
 
 @mixin transition($transition...) {
   -webkit-transition: $transition;
+<<<<<<< HEAD
+=======
+     -moz-transition: $transition;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transition: $transition;
 }
 @mixin transition-delay($transition-delay) {
   -webkit-transition-delay: $transition-delay;
+<<<<<<< HEAD
+=======
+     -moz-transition-delay: $transition-delay;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transition-delay: $transition-delay;
 }
 @mixin transition-duration($transition-duration) {
   -webkit-transition-duration: $transition-duration;
+<<<<<<< HEAD
+=======
+     -moz-transition-duration: $transition-duration;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transition-duration: $transition-duration;
 }
 @mixin transition-timing-function($transition-timing) {
    -webkit-transition-timing-function: $transition-timing;
+<<<<<<< HEAD
+=======
+      -moz-transition-timing-function: $transition-timing;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
            transition-timing-function: $transition-timing;
  }
  @mixin transition-property($property) {
   -webkit-transition-property: $property;
+<<<<<<< HEAD
+=======
+     -moz-transition-property: $property;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transition-property: $property;
 }
 @mixin transition-transform($properties...) {
   // special case cuz of transform vendor prefixes
   -webkit-transition: -webkit-transform $properties;
+<<<<<<< HEAD
+=======
+     -moz-transition: -moz-transform $properties;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transition: transform $properties;
 }
 
@@ -350,30 +419,59 @@
 
 @mixin animation($animation) {
  -webkit-animation: $animation;
+<<<<<<< HEAD
+=======
+    -moz-animation: $animation;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
          animation: $animation;
 }
 @mixin animation-duration($duration) {
  -webkit-animation-duration: $duration;
+<<<<<<< HEAD
+=======
+    -moz-animation-duration: $duration;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
          animation-duration: $duration;
 }
 @mixin animation-direction($direction) {
  -webkit-animation-direction: $direction;
+<<<<<<< HEAD
+=======
+    -moz-animation-direction: $direction;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
          animation-direction: $direction;
 }
 @mixin animation-timing-function($animation-timing) {
  -webkit-animation-timing-function: $animation-timing;
+<<<<<<< HEAD
+=======
+    -moz-animation-timing-function: $animation-timing;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
          animation-timing-function: $animation-timing;
 }
 @mixin animation-fill-mode($fill-mode) {
  -webkit-animation-fill-mode: $fill-mode;
+<<<<<<< HEAD
          animation-fill-mode: $fill-mode;
 }
 @mixin animation-name($name...) {
  -webkit-animation-name: $name;
+=======
+    -moz-animation-fill-mode: $fill-mode;
+         animation-fill-mode: $fill-mode;
+}
+@mixin animation-name($name) {
+ -webkit-animation-name: $name;
+    -moz-animation-name: $name;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
          animation-name: $name;
 }
 @mixin animation-iteration-count($count) {
  -webkit-animation-iteration-count: $count;
+<<<<<<< HEAD
+=======
+    -moz-animation-iteration-count: $count;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
          animation-iteration-count: $count;
 }
 
@@ -402,11 +500,19 @@
 }
 @mixin transform($val) {
   -webkit-transform: $val;
+<<<<<<< HEAD
+=======
+     -moz-transform: $val;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transform: $val;
 }
 
 @mixin transform-origin($left, $top) {
   -webkit-transform-origin: $left $top;
+<<<<<<< HEAD
+=======
+     -moz-transform-origin: $left $top;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           transform-origin: $left $top;
 }
 
@@ -427,6 +533,10 @@
 
 @mixin background-clip($clip) {
   -webkit-background-clip: $clip;
+<<<<<<< HEAD
+=======
+     -moz-background-clip: $clip;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           background-clip: $clip;
 }
 
@@ -436,6 +546,10 @@
 
 @mixin background-size($size) {
   -webkit-background-size: $size;
+<<<<<<< HEAD
+=======
+     -moz-background-size: $size;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
           background-size: $size;
 }
 
@@ -488,7 +602,11 @@
   display: flex;
 }
 
+<<<<<<< HEAD
 @mixin display-inline-flex {
+=======
+@mixin dislay-inline-flex {
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
   display: -moz-inline-flex;
@@ -606,6 +724,7 @@
   justify-content: $value;
 }
 
+<<<<<<< HEAD
 @mixin flex-order($n) {
   -webkit-order: $n;
   -ms-flex-order: $n;
@@ -613,6 +732,8 @@
   -webkit-box-ordinal-group: $n;
 }
 
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 @mixin responsive-grid-break($selector, $max-width) {
   @media (max-width: $max-width) {
     #{$selector} {

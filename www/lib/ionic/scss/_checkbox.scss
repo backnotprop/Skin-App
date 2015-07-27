@@ -6,7 +6,11 @@
 
 .checkbox {
   // set the color defaults
+<<<<<<< HEAD
   @include checkbox-style($checkbox-off-border-default, $checkbox-on-bg-default, $checkbox-on-border-default);
+=======
+  @include checkbox-style($checkbox-off-border-default, $checkbox-on-bg-default);
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 
   position: relative;
   display: inline-block;
@@ -14,6 +18,7 @@
   cursor: pointer;
 }
 .checkbox-light  {
+<<<<<<< HEAD
   @include checkbox-style($checkbox-off-border-light, $checkbox-on-bg-light, $checkbox-off-border-light);
 }
 .checkbox-stable  {
@@ -39,6 +44,33 @@
 }
 .checkbox-dark  {
   @include checkbox-style($checkbox-off-border-dark, $checkbox-on-bg-dark, $checkbox-off-border-dark);
+=======
+  @include checkbox-style($checkbox-off-border-light, $checkbox-on-bg-light);
+}
+.checkbox-stable  {
+  @include checkbox-style($checkbox-off-border-stable, $checkbox-on-bg-stable);
+}
+.checkbox-positive  {
+  @include checkbox-style($checkbox-off-border-positive, $checkbox-on-bg-positive);
+}
+.checkbox-calm  {
+  @include checkbox-style($checkbox-off-border-calm, $checkbox-on-bg-calm);
+}
+.checkbox-assertive  {
+  @include checkbox-style($checkbox-off-border-assertive, $checkbox-on-bg-assertive);
+}
+.checkbox-balanced  {
+  @include checkbox-style($checkbox-off-border-balanced, $checkbox-on-bg-balanced);
+}
+.checkbox-energized{
+  @include checkbox-style($checkbox-off-border-energized, $checkbox-on-bg-energized);
+}
+.checkbox-royal  {
+  @include checkbox-style($checkbox-off-border-royal, $checkbox-on-bg-royal);
+}
+.checkbox-dark  {
+  @include checkbox-style($checkbox-off-border-dark, $checkbox-on-bg-dark);
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 .checkbox input:disabled:before,
@@ -77,7 +109,11 @@
     border-radius: $checkbox-border-radius;
     background: $checkbox-off-bg-color;
     content: ' ';
+<<<<<<< HEAD
     @include transition(background-color 20ms ease-in-out);
+=======
+    transition: background-color 20ms ease-in-out;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   }
 }
 
@@ -92,11 +128,19 @@ input:checked + .checkbox-icon:before {
   @include transition(opacity .05s ease-in-out);
   @include rotate(-45deg);
   position: absolute;
+<<<<<<< HEAD
   top: 33%;
   left: 25%;
   display: table;
   width: ($checkbox-width / 2);
   height: ($checkbox-width / 4) - 1;
+=======
+  top: 30%;
+  left: 26%;
+  display: table;
+  width: ($checkbox-width / 2) + 1;
+  height: ($checkbox-width / 3) + 1;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
   border: $checkbox-check-width solid $checkbox-check-color;
   border-top: 0;
   border-right: 0;
@@ -104,6 +148,7 @@ input:checked + .checkbox-icon:before {
   opacity: 0;
 }
 
+<<<<<<< HEAD
 .platform-android .checkbox-platform input:before,
 .platform-android .checkbox-platform .checkbox-icon:before,
 .checkbox-square input:before,
@@ -127,6 +172,8 @@ input:checked + .checkbox-icon:before {
   height: 7px;
 }
 
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 .grade-c .checkbox input:after,
 .grade-c .checkbox-icon:after {
   @include rotate(0);
@@ -173,4 +220,8 @@ input:checked + .checkbox-icon:after {
 .item-checkbox-right .checkbox input,
 .item-checkbox-right .checkbox-icon {
   float: right;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44

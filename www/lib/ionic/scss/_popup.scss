@@ -49,11 +49,14 @@
     @include display-flex();
     @include flex-direction(column);
   }
+<<<<<<< HEAD
 
   input,
   textarea {
     width: 100%;
   }
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 .popup-head {
@@ -74,7 +77,11 @@
 }
 .popup-body {
   padding: 10px;
+<<<<<<< HEAD
   overflow: auto;
+=======
+  overflow: scroll;
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 }
 
 .popup-buttons {

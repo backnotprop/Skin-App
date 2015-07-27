@@ -18,6 +18,7 @@
   @include flex-wrap(wrap);
 }
 
+<<<<<<< HEAD
 .row-no-padding {
   padding: 0;
 
@@ -26,6 +27,8 @@
   }
 }
 
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 .row + .row {
   margin-top: ($grid-padding-width / 2) * -1;
   padding-top: 0;

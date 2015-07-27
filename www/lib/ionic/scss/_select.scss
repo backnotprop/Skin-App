@@ -11,7 +11,10 @@
     @include appearance(none);
     position: absolute;
     top: 0;
+<<<<<<< HEAD
     bottom: 0;
+=======
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     right: 0;
     padding: ($item-padding - 2) ($item-padding * 3) ($item-padding) $item-padding;
     max-width: 65%;

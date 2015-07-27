@@ -1,7 +1,16 @@
 {
+<<<<<<< HEAD
   "name": "HelloIonic",
   "private": "true",
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.1"
   }
 }
+=======
+  "name": "skinApp",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.13"
+  }
+}
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44

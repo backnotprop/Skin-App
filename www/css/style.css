@@ -56,6 +56,10 @@
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 /************* Custom styles *************/
 
 /*-------- LOGIN --------*/
@@ -65,7 +69,11 @@
     min-width: 100%;
     min-height:100vh;
 }
+<<<<<<< HEAD
 #loginButton {
+=======
+#fBook {
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     position: absolute;
     bottom: 15%;
 
@@ -96,6 +104,10 @@
 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 #profilePic {
     position: absolute;
     border:3px grey solid;
@@ -125,6 +137,11 @@
     margin-top:5%;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 #profFeed{
     position: relative;
     margin-top: 25%;
@@ -135,6 +152,11 @@
     margin: 0;
 }
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 .item-body{
     margin-left: 0;
     margin-right: 0;
@@ -145,6 +167,11 @@
 
 /*-------- EXPLORE ---------*/
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
 #listitem1{
     background-image: url("../img/exploreimages/abstract.jpg");
     margin-left: 0;
@@ -212,6 +239,11 @@
 
 }
 #listitemh2{
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
     position:absolute;
     left:5px;
     bottom:0px;
@@ -223,6 +255,7 @@
     right:5px;
     font-size:60px;
     color:white;
+<<<<<<< HEAD
 }
 
 /*-------- Ink/Camera ---------*/
@@ -237,3 +270,6 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
+=======
+}
+>>>>>>> cd9e7e7363fa9bf393f82ebd426d2fe8e72a8d44
